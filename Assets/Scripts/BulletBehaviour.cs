@@ -23,11 +23,19 @@ public class BulletBehaviour : MonoBehaviour
             EnemyHealth health = collision.GetComponent<EnemyHealth>();
             if (health != null)
             {
-                Debug.Log("Llamando al método");
+                Debug.Log("Llamando al mï¿½todo");
                 health.TakeDamage();
             }
 
             Destroy(this.gameObject);
+        }
+
+        if(collision.tag.Equals("Player") && !_collider.tag.Equals("Player")){
+            LifePlayer saludDelJugador = collision.GetComponent<LifePlayer>();
+
+            if (saludDelJugador != null){
+                saludDelJugador.RecibirDanio();
+            }
         }
     }
 }

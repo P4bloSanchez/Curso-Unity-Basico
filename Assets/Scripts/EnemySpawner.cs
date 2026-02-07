@@ -4,8 +4,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemy;
     [SerializeField] private float _spawnTime;
+
+    //Enemigos que pueden estar en la pantalla
+    [SerializeField] private int _maxEnemies;
+
     private BoxCollider2D _boxCollider;
     private float _spawnTimer;
+    private int _actuallyEnemies = 0;
 
     private void Start()
     {
@@ -17,17 +22,26 @@ public class EnemySpawner : MonoBehaviour
     {
         _spawnTimer -= Time.deltaTime;
 
-        if (_spawnTimer <= 0)
-        {
-            SpawnEnemy();
-            _spawnTimer = _spawnTime;
-        }
+        //Limitar los enemigos
+
+        Debug.Log($"Enemies: {_actuallyEnemies} / Max: {_maxEnemies} | spawnTimer: {_spawnTimer:F2}");
+
+            if (_spawnTimer <= 0 && _actuallyEnemies < _maxEnemies)
+            {
+                SpawnEnemy();
+                _spawnTimer = _spawnTime;
+            }
+
+
     }
 
     private void SpawnEnemy()
     {
         Vector2 randomPosition = GetPosition();
         Instantiate(_enemy, randomPosition, Quaternion.identity);
+
+        //Lanzar mas enemigos
+        _actuallyEnemies ++;
     }
 
     private Vector2 GetPosition()
