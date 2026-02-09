@@ -14,6 +14,9 @@ public class LifePlayer : MonoBehaviour
     //Render del jugador
     private SpriteRenderer _spriteRenderer;
 
+    //Invocar tabla de puntaje
+    [SerializeField] private ScoreLabel _puntuacion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +39,7 @@ public class LifePlayer : MonoBehaviour
 
         _saludActual -= _danioRecibido;
         _barraDeVida.setVida(_saludActual);
+        _puntuacion.MinusScore(10);
 
         StartCoroutine(DamageFlash());
 

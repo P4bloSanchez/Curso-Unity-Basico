@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,36 +13,30 @@ public class EnemySpawner : MonoBehaviour
     private float _spawnTimer;
     private int _actuallyEnemies = 0;
 
+    //Numero de oleadas
+    [SerializeField] private int oleadas;
+    [SerializeField] private float _tiempoEntreOleadas;
+
     private void Start()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
         _spawnTimer = _spawnTime;
+        StartCoroutine(SendWaves());
     }
 
     private void Update()
     {
         _spawnTimer -= Time.deltaTime;
-
-        //Limitar los enemigos
-
-        Debug.Log($"Enemies: {_actuallyEnemies} / Max: {_maxEnemies} | spawnTimer: {_spawnTimer:F2}");
-
-            if (_spawnTimer <= 0 && _actuallyEnemies < _maxEnemies)
-            {
-                SpawnEnemy();
-                _spawnTimer = _spawnTime;
-            }
-
-
     }
 
     private void SpawnEnemy()
     {
-        Vector2 randomPosition = GetPosition();
-        Instantiate(_enemy, randomPosition, Quaternion.identity);
+            Vector2 randomPosition = GetPosition();
+            Instantiate(_enemy, randomPosition, Quaternion.identity);
 
-        //Lanzar mas enemigos
-        _actuallyEnemies ++;
+            //Lanzar mas enemigos
+            _actuallyEnemies += 1;
+        
     }
 
     private Vector2 GetPosition()
@@ -52,5 +47,26 @@ public class EnemySpawner : MonoBehaviour
         float randomY = Random.Range(bounds.min.y, bounds.max.y);
 
         return new Vector2(randomX, randomY);
+    }
+
+    private IEnumerator SendWaves()
+    {
+        for (int i = 0; i < oleadas; i++)
+        {
+            Debug.Log($"Oleada {i + 1} - Max Enemigos: {_maxEnemies}");
+
+            _actuallyEnemies = 0;
+            _maxEnemies += i;
+
+            while (_actuallyEnemies < _maxEnemies)
+            {
+                SpawnEnemy();
+                yield return new WaitForSeconds(_spawnTime);
+            }
+
+            yield return new WaitForSeconds(_tiempoEntreOleadas);
+        }
+
+        Debug.Log("Todas las oleadas han terminado");
     }
 }

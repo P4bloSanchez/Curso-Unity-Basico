@@ -367,6 +367,8 @@ MonoBehaviour:
   _enemy: {fileID: 4991902484816219780, guid: 8977ac103d2661d4cade2e88c8994e26, type: 3}
   _spawnTime: 2.5
   _maxEnemies: 5
+  oleadas: 6
+  _tiempoEntreOleadas: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,7 +825,7 @@ GameObject:
   - component: {fileID: 1732341657}
   - component: {fileID: 1732341656}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Puntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa6d1639ca7f4e03986b51ab0946aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreLabel
+  _contador: {fileID: 0}
 --- !u!114 &1732341657
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -29,6 +29,11 @@ public class ScoreLabel : MonoBehaviour
         UpdateScore();
     }
 
+    public void MinusScore(int count){
+        this._score -= count;
+        UpdateScore();
+    }
+
     private void UpdateScore(){
         _contador.text = $"Score:\n{_score:D7}";
     }
