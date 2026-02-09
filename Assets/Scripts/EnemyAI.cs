@@ -19,15 +19,15 @@ public class EnemyAI : MonoBehaviour
         // Tiempo inicial
         _shootTimer = Random.Range(_minTime, _maxTime);
 
-        // Límites de la pantalla
+        // Lï¿½mites de la pantalla
         Vector3 screenValues = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z);
         _screenBounds = Camera.main.ScreenToWorldPoint(screenValues);
 
-        // Tamaño del enemigo
+        // Tamaï¿½o del enemigo
         _collider2D = GetComponent<Collider2D>();
         _enemyWidth = _collider2D.bounds.extents.x;
 
-        // Posición inicial
+        // Posiciï¿½n inicial
         SetRandomXPosition();
     }
 

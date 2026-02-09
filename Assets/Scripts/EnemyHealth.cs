@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,6 +10,15 @@ public class EnemyHealth : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
+    public ScoreLabel puntaje;
+
+    //Crear evento
+    //public static event Action<int> EnemigoMuerto;
+
+    void Awake(){
+        InstanceScorePanel();
+    }
+
     private void Start()
     {
         _currentHealth = _health;
@@ -17,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        Debug.Log("Hacer daño");
+        Debug.Log("Hacer daï¿½o");
 
         _currentHealth -= _bulletDamage;
 
@@ -26,6 +36,17 @@ public class EnemyHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             Destroy(gameObject);
+
+            //Destruido el objeto, sumarle puntos al jugador
+        /*
+            if(EnemigoMuerto != null){
+                EnemigoMuerto.Invoke(100);
+            }
+        */
+
+            if(puntaje != null){
+                puntaje.AddScore(100);
+            }
         }
     }
 
@@ -37,5 +58,10 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         _spriteRenderer.color = originalColor;
+    }
+
+    //Buscar el panel de la puntuaciÃ³n para instanciarlo
+    private void InstanceScorePanel(){
+        puntaje = FindFirstObjectByType<ScoreLabel>();
     }
 }

@@ -7,9 +7,9 @@ public class LifePlayer : MonoBehaviour
     [SerializeField] private float _vida;
     [SerializeField] private float _danioRecibido;
 
-    private float _saludActual;
+    [SerializeField] private LifeSlider _barraDeVida;
 
-    public SliderLive barraDeVida;
+    private float _saludActual;
 
     //Render del jugador
     private SpriteRenderer _spriteRenderer;
@@ -20,9 +20,9 @@ public class LifePlayer : MonoBehaviour
         _saludActual = _vida;
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        //Barra de Vida
-        barraDeVida.setMaxSalud(_vida);
-        barraDeVida.setSalud(_vida);
+        _barraDeVida.setVidaMaxima(_vida);
+
+        //Modicar la barra de vida al inicio
     }
 
     // Update is called once per frame
@@ -35,13 +35,15 @@ public class LifePlayer : MonoBehaviour
         Debug.Log("Haz recibido daño");
 
         _saludActual -= _danioRecibido;
-        barraDeVida.setSalud(_saludActual);
+        _barraDeVida.setVida(_saludActual);
+
         StartCoroutine(DamageFlash());
 
         if(_saludActual <= 0){
             _saludActual = 0;
             Debug.Log("Haz muerto");
 
+            //LifeSlider.setVida(_saludActual);
             Destroy(gameObject);
 
             SceneManager.LoadScene("Menu");
