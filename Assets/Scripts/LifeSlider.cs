@@ -3,14 +3,17 @@ using UnityEngine.UI;
 
 public class LifeSlider : Slider
 {
-    protected override void OnValidate(){
-        base.OnValidate();
+protected override void Start()
+{
+    base.Start();
+    onValueChanged.AddListener(OnLifeChanged);
+}
 
-    if (fillRect == null)
-        return;
-
-        NewVisibility();
-    }
+private void OnLifeChanged(float value)
+{
+    if (fillRect == null) return;
+    fillRect.GetComponent<CanvasRenderer>().SetAlpha(value <= 0 ? 0 : 1);
+}
 
     private void NewVisibility(){
         if(value == 0){
