@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
-    public ScoreLabel puntaje;
+    public ScoreLabel score;
 
     //Crear evento
     //public static event Action<int> EnemigoMuerto;
@@ -44,8 +44,8 @@ public class EnemyHealth : MonoBehaviour
             }
         */
 
-            if(puntaje != null){
-                puntaje.AddScore(100);
+            if(score != null){
+                score.AddScore(100);
             }
         }
     }
@@ -62,6 +62,6 @@ public class EnemyHealth : MonoBehaviour
 
     //Buscar el panel de la puntuación para instanciarlo
     private void InstanceScorePanel(){
-        puntaje = FindFirstObjectByType<ScoreLabel>();
+        score = FindFirstObjectByType<ScoreLabel>();
     }
 }

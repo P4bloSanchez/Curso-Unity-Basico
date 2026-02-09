@@ -4,26 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class LifePlayer : MonoBehaviour
 {
-    [SerializeField] private float _vida;
-    [SerializeField] private float _danioRecibido;
+    [SerializeField] private float _life;
+    [SerializeField] private float _takedDamage;
 
-    [SerializeField] private LifeSlider _barraDeVida;
+    [SerializeField] private LifeSlider1 _lifeLine;
 
-    private float _saludActual;
+    private float _actuallyHealth;
 
     //Render del jugador
     private SpriteRenderer _spriteRenderer;
 
     //Invocar tabla de puntaje
-    [SerializeField] private ScoreLabel _puntuacion;
+    [SerializeField] private ScoreLabel _score;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _saludActual = _vida;
+        _actuallyHealth = _life;
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        _barraDeVida.setVidaMaxima(_vida);
+        _lifeLine.setMaxLife(_life);
 
         //Modicar la barra de vida al inicio
     }
@@ -37,14 +37,14 @@ public class LifePlayer : MonoBehaviour
     public void RecibirDanio(){
         Debug.Log("Haz recibido daño");
 
-        _saludActual -= _danioRecibido;
-        _barraDeVida.setVida(_saludActual);
-        _puntuacion.MinusScore(10);
+        _actuallyHealth -= _takedDamage;
+        _lifeLine.setLife(_actuallyHealth);
+        _score.MinusScore(10);
 
         StartCoroutine(DamageFlash());
 
-        if(_saludActual <= 0){
-            _saludActual = 0;
+        if(_actuallyHealth <= 0){
+            _actuallyHealth = 0;
             Debug.Log("Haz muerto");
 
             //LifeSlider.setVida(_saludActual);

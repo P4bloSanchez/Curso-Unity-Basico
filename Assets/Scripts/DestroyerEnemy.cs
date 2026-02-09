@@ -2,22 +2,21 @@ using UnityEngine;
 
 public class DestroyerEnemy : MonoBehaviour
 {
-    private Vector2 _bordes;
-
-    private float _enemytWidth;
-    private float _enemyHeight;
-    private Collider2D _colisionador;
-
-    private float margen = 0.3f;
+    private float marge = 0.3f;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        DestroyTheEnemy();
+    }
+
+    private void DestroyTheEnemy(){
         Vector2 posicion = Camera.main.WorldToViewportPoint(transform.position);
 
-        if(posicion.y > 1 + margen || posicion.x > 1 + margen||
-            posicion.y < 0 - margen || posicion.x < 0 - margen){
+        if(posicion.y > 1 + marge || posicion.x > 1 + marge||
+            posicion.y < 0 - marge || posicion.x < 0 - marge){
                 Destroy(gameObject);
             }
+    
     }
 }

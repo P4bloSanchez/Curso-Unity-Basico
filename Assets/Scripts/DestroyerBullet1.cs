@@ -16,10 +16,10 @@ public class DestroyerBullet1 : MonoBehaviour
 
     // Destrucción de la bala
     void DestroyTheBullet(){
-        Vector2 posicion = Camera.main.WorldToViewportPoint(transform.position);
+        Vector2 location = Camera.main.WorldToViewportPoint(transform.position);
 
-        if(posicion.y > 1 || posicion.x > 1 ||
-            posicion.y < 0 || posicion.x < 0){
+        if(location.y > 1 || location.x > 1 ||
+            location.y < 0 || location.x < 0){
                 Destroy(gameObject);
             }
     }

@@ -840,15 +840,15 @@ RectTransform:
   m_GameObject: {fileID: 1732341654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75252, y: 0.75252, z: 0.75252}
+  m_LocalScale: {x: 0.47981432, y: 0.47981432, z: 0.47981432}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1771903968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -145, y: -50}
-  m_SizeDelta: {x: 113.9895, y: 62.48529}
+  m_AnchoredPosition: {x: 123.9, y: 120}
+  m_SizeDelta: {x: -320.0105, y: -233.51471}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1732341656
 MonoBehaviour:
@@ -1220,9 +1220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372715e2a7b9343e1a92d9eaa27f0da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LifePlayer
-  _vida: 15
+  _vida: 20
   _danioRecibido: 1
-  _barraDeVida: {fileID: 1971973144}
+  _barraDeVida: {fileID: 1971973145}
   _puntuacion: {fileID: 1732341656}
 --- !u!1 &1759149288
 GameObject:
@@ -1441,6 +1441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971973143}
+  - component: {fileID: 1971973145}
   - component: {fileID: 1971973144}
   m_Layer: 5
   m_Name: Barra de Vida
@@ -1468,7 +1469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102, y: -41}
+  m_AnchoredPosition: {x: 111, y: -21.8}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971973144
@@ -1480,9 +1481,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971973142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97fd3916d7754578bdb4106085549d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LifeSlider
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -1497,7 +1498,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 3.11
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1518,10 +1519,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1971973145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971973142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7505675386a74f79959894570d26c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LifeSlider1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

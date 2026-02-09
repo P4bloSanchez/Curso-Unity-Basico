@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1787316329109722460}
   - component: {fileID: 1597377679003278942}
   - component: {fileID: 6849563591312018051}
-  - component: {fileID: 8976753615146513559}
+  - component: {fileID: 443221068814893599}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Enemy
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletBehaviour
   _bulletSpeed: -5
---- !u!114 &8976753615146513559
+--- !u!114 &443221068814893599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,6 +180,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8465328736588933453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e04e5cdcb0c433eabe2fcfa54276d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2550463612d3f477f8e3ad6fa840f1a1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyerBullet1
